@@ -1,0 +1,21 @@
+<p>artistplaylist works!</p>
+<div *ngIf="playlistItems.length > 0">
+  <h2>Playlist Items</h2>
+  <ul>
+    <li *ngFor="let item of playlistItems">
+      <img
+        [src]="item.track.album.images[0]?.url"
+        alt="{{ item.track.name }}"
+        width="50"
+        height="50"
+      />
+      <span>{{ item.track.name }} by {{ item.track.artists[0].name }}</span>
+      <div>
+        <audio controls>
+          <source [src]="item.track.preview_url" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </li>
+  </ul>
+</div>
